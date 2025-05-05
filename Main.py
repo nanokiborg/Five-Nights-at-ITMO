@@ -1,35 +1,39 @@
 import pygame
-from chat import show_chat_window # импорт функции из файла с ЧАТОМ
+import subprocess  
 
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600 
 
-pygame.init()
-screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-pygame.display.set_caption("FNaITMO")
-pygame.display.set_icon(pygame.image.load('Five-Nights-at-ITMO\images\icon.png')) 
-# для более корректного поиска изображения удлиннила ссылку 
-# P.s. по старому пути images\icon.png не находило вообще
+if __name__=="__main__":
+    # Инициализация Pygame
+    pygame.init()
 
-running = True
-while running:
+    # Настройка экрана
+    screen = pygame.display.set_mode((640, 360))
+    pygame.display.set_caption("Главное меню")
 
-    screen.blit(pygame.image.load('Five-Nights-at-ITMO\images\icon.png'), (144, 44)) 
-    # для более корректного поиска изображения удлиннила ссылку 
+    # Цвета
+    WHITE = (255, 255, 255)
+    BLACK = (0, 0, 0)
 
-    pygame.display.update()
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
 
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-            pygame.quit()
+            # Проверка нажатия мышкой на кнопки
+            if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                mouse_x, mouse_y = pygame.mouse.get_pos()
+                if 220 <= mouse_x <= 420  and 120 <= mouse_y <= 170:
+                    subprocess.Popen(["python", "game.py"])  # Запускаем game.py
+                    running = False  # Закрываем окно с меню
 
-        elif event.type == pygame.KEYDOWN:
+        screen.fill(WHITE)
 
-            if event.key == pygame.K_u:
-                screen.fill((0, 255, 0))
-            elif event.key == pygame.K_h:  # Это обозначение кнопки для открытия ЧАТА
-                show_chat_window()
+        # Отрисовка кнопок
+        pygame.draw.rect(screen, BLACK, (210, 120, 200, 50))
+        pygame.draw.rect(screen, BLACK, (210, 220, 200, 50))
 
-        elif event.type == pygame.KEYUP:
-            screen.fill((255, 0, 0))
+        pygame.display.flip()
+
+        # Задержка для контроля частоты кадров
+        pygame.time.Clock().tick(60)
