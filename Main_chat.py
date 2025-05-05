@@ -7,16 +7,14 @@ SCREEN_HEIGHT = 600
 pygame.init()
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("FNaITMO")
-pygame.display.set_icon(pygame.image.load('Five-Nights-at-ITMO\textures\icon.png')) 
-# для более корректного поиска изображения удлиннила ссылку 
+pygame.display.set_icon(pygame.image.load('textures\icon.png')) 
 # P.s. по старому пути images\icon.png не находило вообще
 
 running = True
 while running:
 
-    screen.blit(pygame.image.load('Five-Nights-at-ITMO\textures\icon.png'), (144, 44)) 
-    # для более корректного поиска изображения удлиннила ссылку 
-
+    screen.blit(pygame.image.load('textures\icon.png'), (144, 44)) 
+    
     pygame.display.update()
 
     for event in pygame.event.get():

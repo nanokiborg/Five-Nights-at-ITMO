@@ -20,11 +20,11 @@ if __name__=="__main__":
     # Создание экрана игрока
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     pygame.display.set_caption("FNaITMO")
-    pygame.display.set_icon(pygame.image.load('Five-Nights-at-ITMO\textures/icon.png'))
+    pygame.display.set_icon(pygame.image.load('textures/icon.png'))
 
     # Константы пресонажа
-    PLAYER_IMAGE_1 = pygame.image.load('Five-Nights-at-ITMO\textures/player_1.png')
-    PLAYER_IMAGE_2 = pygame.image.load('Five-Nights-at-ITMO\textures/player_2.png')
+    PLAYER_IMAGE_1 = pygame.image.load('textures/player_1.png')
+    PLAYER_IMAGE_2 = pygame.image.load('textures/player_2.png')
     PLAYER_POSITION_X = 300
     PLAYER_POSITION_Y = 600
     speed = 4
