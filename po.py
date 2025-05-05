@@ -8,7 +8,7 @@ pygame.init()
 # Настройка экрана
 screen = pygame.display.set_mode((800, 600))
 pygame.display.set_caption("FNaITMO")
-pygame.display.set_icon(pygame.image.load('images/icon.png'))
+pygame.display.set_icon(pygame.image.load('Five-Nights-at-ITMO\images\icon.png'))
 
 # Цвет и размеры экрана
 WHITE = (255, 255, 255)
@@ -16,8 +16,8 @@ WHIGHT = 800
 LENGHT = 600
 
 # Константы пресонажа
-PLAYER_IMAGE_1 = pygame.image.load('images/player_1.png')
-PLAYER_IMAGE_2 = pygame.image.load('images/player_2.png')
+PLAYER_IMAGE_1 = pygame.image.load('Five-Nights-at-ITMO\images\player_1.png')
+PLAYER_IMAGE_2 = pygame.image.load('Five-Nights-at-ITMO\images\player_2.png')
 PLAYER_POSITION_X = 600
 PLAYER_POSITION_Y = 300
 PLAYER = PLAYER_IMAGE_1.get_rect(center=(PLAYER_POSITION_X, PLAYER_POSITION_Y))
