@@ -143,7 +143,7 @@ class ChatApp:
         
         # Загружаем фоновое изображение (если есть)
         try:
-            self.bg_image = PhotoImage(file=r'C:\Users\MiniBig\Desktop\ITMO work\Python\chat.gif')
+            self.bg_image = PhotoImage(file=r'textures/chat.gif')
             # Масштабируем изображение под размер окна
             self.bg_image = self.bg_image.zoom(1)  # Можно настроить под ваш размер изображения
             self.bg_image = self.bg_image.subsample(2)  # Или subsample для уменьшения
