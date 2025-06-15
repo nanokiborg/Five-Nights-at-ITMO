@@ -3,7 +3,6 @@ import math
 import sys
 from time import sleep
 from walls.wallmanager import WallManager
-from chat import show_chat_window
 from walls.first_level import generate_random_walls, create_manual_walls
 
 
@@ -35,9 +34,6 @@ if __name__=="__main__":
     current_frame = PLAYER_IMAGE_1  
     animation_timer = 0     
     animation_speed = 30 # Скорость смены кадров (в кадрах в секунду)
-
-    # флаг для открытия чата
-    chat_open = False
 
     # Задание начальной позиции и создание камеры персонажа
     PLAYER = PLAYER_IMAGE_1.get_rect(center=(PLAYER_POSITION_X, PLAYER_POSITION_Y))
@@ -79,9 +75,6 @@ if __name__=="__main__":
         if keys[pygame.K_s]:  # Клавиша "Вниз"
             PLAYER.y += speed
             moving_trig = True
-        if keys[pygame.K_q]: # Клавиша "Открытия чата"
-            show_chat_window()
-            sleep(0.5)
         
         # Проверка коллизии со стеной
         if wall_manager.check_collision(PLAYER):
