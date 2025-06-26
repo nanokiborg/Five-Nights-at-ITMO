@@ -45,6 +45,14 @@ def create_walls_from_image(map_surface, wall_manager):
 # Инициализация Pygame
 pygame.init()
 
+# Инициализация микшера для музыки
+pygame.mixer.init()
+
+# Загрузка фоновой музыки для игры
+pygame.mixer.music.load("music/ambient.mp3")  
+pygame.mixer.music.set_volume(0.5)  
+pygame.mixer.music.play(-1)  
+
 # Настройка разрешения экрана
 SCREEN_WIDTH, SCREEN_HEIGHT = 640, 360
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))

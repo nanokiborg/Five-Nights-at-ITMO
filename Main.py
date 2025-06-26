@@ -5,6 +5,14 @@ if __name__ == "__main__":
     # Инициализация Pygame
     pygame.init()
 
+    # Инициализация микшера для музыки
+    pygame.mixer.init()
+
+    # Загрузка фоновой музыки для игры
+    pygame.mixer.music.load("music/fnaf_8bit.mp3")
+    pygame.mixer.music.set_volume(0.5)
+    pygame.mixer.music.play(-1)
+
     # Настройка экрана
     screen = pygame.display.set_mode((720, 512))
     pygame.display.set_caption("Main Menu")
