@@ -1,6 +1,29 @@
 import pygame
 import math
 from walls import WallManager
+import cv2  
+
+# Функция для воспроизведения видео
+def play_video_with_sound(video_path, sound_path):
+    """Воспроизводит видео с звуком."""
+    pygame.mixer.init()
+    pygame.mixer.music.load(sound_path) 
+    pygame.mixer.music.play()  
+
+    cap = cv2.VideoCapture(video_path)
+
+    while True:
+        ret, frame = cap.read()  
+        if not ret:
+            break  
+
+        cv2.imshow("Game Ending Video", frame)  
+        if cv2.waitKey(25) & 0xFF == ord('q'):  
+            break
+
+    cap.release()  
+    cv2.destroyAllWindows()  
+    pygame.mixer.music.stop()  
 
 # Функция для загрузки карт
 def load_map(map_name):
@@ -292,6 +315,7 @@ if __name__=="__main__":
         if len(collected_paper) == total_items:
             print("Поздравляем! Вы собрали все предметы, но, что-то пошло не так!")
             running = False
+            play_video_with_sound("videos/final.mp4", "music/scream.mp3")
 
         # Обновление камеры
         camera.center = PLAYER.center
