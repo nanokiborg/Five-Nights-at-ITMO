@@ -24,6 +24,7 @@ if __name__ == "__main__":
                 mouse_x, mouse_y = pygame.mouse.get_pos()
                 if 258 <= mouse_x <= 462 and 356 <= mouse_y <= 434:
                     subprocess.Popen(["python", "game.py"])  # Запускаем game.py
+                    subprocess.Popen(["python", "chat.py"])  # Запускаем chat.py
                     running = False  
 
         # Отрисовка фона с кнопки
